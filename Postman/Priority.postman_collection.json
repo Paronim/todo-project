@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "f9f5be65-721c-42a7-8e46-8922d0afa7da",
+		"name": "Priority",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21928994"
+	},
+	"item": [
+		{
+			"name": "Prioritis-by-email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "email1000@gmail.com",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/priority/all",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"priority",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Priority-search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"низкий\",\r\n\"email\": \"email1000@gmail.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/priority/search",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"priority",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-priority",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"Щыень высокий\",\r\n        \"color\": \"#0000\",\r\n        \"user\": {\r\n            \"id\": 10035}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/priority/add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"priority",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-priority",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 60094,\r\n        \"title\": \"Очень высокий 2\",\r\n        \"color\": \"#0000\",\r\n        \"user\": {\r\n            \"id\": 10035}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/priority/update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"priority",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-priority",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/priority/delete/60093",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"priority",
+						"delete",
+						"60093"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find-by-id-priority",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "60094",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/priority/id",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"priority",
+						"id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

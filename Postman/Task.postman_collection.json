@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "dcb15e84-8a57-4c12-ad1b-53eba4c7f6fa",
+		"name": "Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21928994"
+	},
+	"item": [
+		{
+			"name": "Tasks-by-email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "email3@gmail.com",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/task/all",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"task",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"title\": \"Тестовая задача\",\r\n        \"completed\": false,\r\n        \"taskDate\": \"2011-08-01T21:00:00.000+00:00\",\r\n        \"categoryId\": {\r\n            \"id\": 60141\r\n        },\r\n        \"priorityId\": {\r\n            \"id\": 30081\r\n        },\r\n        \"user\": {\r\n            \"id\": 10027\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/task/add",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"task",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"title\": \"Тестовая задача 2\",\r\n        \"completed\": false,\r\n        \"taskDate\": \"2011-08-01T21:00:00.000+00:00\",\r\n            \"id\": 100189,\r\n        \"categoryId\": {\r\n            \"id\": 60141\r\n        },\r\n        \"priorityId\": {\r\n            \"id\": 30081\r\n        },\r\n        \"user\": {\r\n            \"id\": 10027\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/task/update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"task",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/task/delete/100189",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"task",
+						"delete",
+						"100189"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find-by-id-task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "100185",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/task/id",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"task",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks-search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"priorityId\":30081,\r\n    \"categoryId\":60139,\r\n    \"dateFrom\":\"2021-07-02\",\r\n    \"dateTo\":\"2021-09-02\",\r\n    \"completed\": 0,\r\n\r\n    \"title\": \"т\",\r\n    \"email\": \"email3@gmail.com\",\r\n    \"pageNumber\": 0,\r\n    \"pageSize\": 5,\r\n    \"sortColumns\": \"title\",\r\n    \"sortDirection\": \"DESK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/task/search",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"task",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
