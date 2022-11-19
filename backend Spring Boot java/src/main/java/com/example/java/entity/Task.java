@@ -30,35 +30,35 @@ import java.util.Objects;
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Task implements Serializable {
 
-    // указываем, что поле заполняется в БД
-    // нужно, когда добавляем новый объект и он возвращается уже с новым id
+    
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
     private String title;
 
-    @Type(type = "org.hibernate.type.NumericBooleanType") // для автоматической конвертации числа в true/false
-    private Boolean completed; // 1 = true, 0 = false
+    @Type(type = "org.hibernate.type.NumericBooleanType") 
+    private Boolean completed; 
 
-    @Column(name = "task_date") // в БД поле называется task_date, т.к. нельзя использовать системное имя date
+    @Column(name = "task_date") 
     private Date taskDate;
 
-    // задача может иметь только один приоритет (с обратной стороны - один и тот же приоритет может быть использоваться в множестве задач)
+    
     @ManyToOne
-    @JoinColumn(name = "priority_id", referencedColumnName = "id") // по каким полям связывать (foreign key)
+    @JoinColumn(name = "priority_id", referencedColumnName = "id") 
     private Priority priority;
 
-    // задача может иметь только одну категорию (с обратной стороны - одна и та же категория может быть использоваться в множестве задач)
+    
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id") // по каким полям связывать (foreign key)
+    @JoinColumn(name = "category_id", referencedColumnName = "id") 
     private Category category;
 
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id") // по каким полям связывать (foreign key)
-    private User user; // для какого пользователя задача
+    @JoinColumn(name = "user_id", referencedColumnName = "id") 
+    private User user; 
 
 
     @Override

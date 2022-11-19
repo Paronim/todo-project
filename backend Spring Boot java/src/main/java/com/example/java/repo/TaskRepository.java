@@ -11,13 +11,13 @@ import com.example.java.entity.Task;
 import java.util.Date;
 import java.util.List;
 
-// принцип ООП: абстракция-реализация - здесь описываем все доступные способы доступа к данным
+
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
     @Query("SELECT t FROM Task t where " +
             "(:title is null or :title='' or lower(t.title) like lower(concat('%', :title,'%'))) and" +
-            "(:completed is null or t.completed=:completed) and " +  // учитываем, что параметр может быть null или пустым
+            "(:completed is null or t.completed=:completed) and " +  
             "(:priorityId is null or t.priority.id=:priorityId) and " +
             "(:categoryId is null or t.category.id=:categoryId) and " +
             "(:categoryId is null or t.category.id=:categoryId) and " +
@@ -25,9 +25,9 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
             "(cast(:dateFrom as timestamp) is null or t.taskDate>=:dateFrom) and " +
             "(cast(:dateTo as timestamp) is null or t.taskDate<=:dateTo)" +
             ") and " +
-            "(t.user.email=:email)" // показывать задачи только определенного пользователя, а не все
+            "(t.user.email=:email)" 
     )
-        // искать по всем переданным параметрам (пустые параметры учитываться не будут)
+        
     Page<Task> findByParams(@Param("title") String title,
                             @Param("completed") Boolean completed,
                             @Param("priorityId") Long priorityId,
@@ -39,7 +39,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     );
 
 
-    // поиск всех задач конкретного пользователя
+    
     List<Task> findByUserEmailOrderByTitleAsc(String email);
 
 
