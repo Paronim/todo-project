@@ -166,7 +166,7 @@ public class TaskController {
 
         
         Sort.Direction direction = sortDirection == null || sortDirection.trim().length() == 0 || sortDirection.trim().equals("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
-                
+
         Sort sort = Sort.by(direction, sortColumn, ID_COLUMN);
 
         
