@@ -166,14 +166,7 @@ public class TaskController {
 
         
         Sort.Direction direction = sortDirection == null || sortDirection.trim().length() == 0 || sortDirection.trim().equals("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
-
-        /* Вторым полем для сортировки добавляем id, чтобы всегда сохранялся строгий порядок.
-            Например, если у 2-х задач одинаковое значение приоритета и мы сортируем по этому полю.
-            Порядок следования этих 2-х записей после выполнения запроса может каждый раз меняться, т.к. не указано второе поле сортировки.
-            Поэтому и используем ID - тогда все записи с одинаковым значением приоритета будут следовать в одном порядке по ID.
-         */
-
-        
+                
         Sort sort = Sort.by(direction, sortColumn, ID_COLUMN);
 
         
