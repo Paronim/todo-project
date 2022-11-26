@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
 
 
 @RestController
-@RequestMapping("/priority") // базовый URI
+@RequestMapping("/priority") 
 public class PriorityController {
 
     private PriorityService priorityService;
@@ -34,7 +34,7 @@ public class PriorityController {
     public ResponseEntity<Priority> add(@RequestBody Priority priority) {
 
         if (priority.getId() != null && priority.getId() != 0) {
-            // id создается автоматически в БД (autoincrement), поэтому его передавать не нужно, иначе может быть конфликт уникальности значения
+            
             return new ResponseEntity("redundant param: id MUST be null", HttpStatus.NOT_ACCEPTABLE);
         }
 

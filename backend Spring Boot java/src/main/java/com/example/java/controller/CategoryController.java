@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
 
 
 @RestController
-@RequestMapping("/category") // базовый URI
+@RequestMapping("/category") 
 public class CategoryController {
 
 
@@ -34,8 +34,8 @@ public class CategoryController {
     @PostMapping("/add")
     public ResponseEntity<Category> add(@RequestBody Category category) {
 
-        if (category.getId() != null && category.getId() != 0) { // это означает, что id заполнено
-            // id создается автоматически в БД (autoincrement), поэтому его передавать не нужно, иначе может быть конфликт уникальности значения
+        if (category.getId() != null && category.getId() != 0) { 
+            
             return new ResponseEntity("redundant param: id MUST be null", HttpStatus.NOT_ACCEPTABLE);
         }
 
@@ -43,7 +43,7 @@ public class CategoryController {
             return new ResponseEntity("missed param: title MUST be not null", HttpStatus.NOT_ACCEPTABLE);
         }
 
-        return ResponseEntity.ok(categoryService.add(category)); // возвращаем добавленный объект с заполненным ID
+        return ResponseEntity.ok(categoryService.add(category)); 
     }
 
 
